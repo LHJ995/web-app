@@ -4,26 +4,30 @@ app = Flask(__name__)
 #기본
 @app.route('/')
 def Main():
-    return '메인'
+    return render_template('main.html')
 
 #게임페이지
 @app.route('/Game')
 def Game():
-    return render_template("Game.html")
+    return render_template('Game.html')
 
 #노래페이지
 @app.route('/Music')
 def Music():
-    return '''
-    <html>
-    <body>
+    return render_template('Music.html')
 
-    <h2>노래방</h2>
-    <img src="https://t1.daumcdn.net/cfile/blog/2074D51049CC2D353D" alt="Live pangpang">
+#로그인페이지
+@app.route('/Login', methods=['GET','POST'])
+def Login():
+    if request.method == "GET":
+        return '그냥 넘어옴'
+    else:
+        return '그냥 넘어옴'
 
-    </body>
-    </html>
-    '''
+#로그인후페이지
+@app.route('/Loginac')
+def Loginac():
+    return '로그인 되었습니다.'
 
 if __name__ == '__main__':
     app.run()
