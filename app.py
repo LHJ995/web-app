@@ -1,4 +1,7 @@
 from flask import Flask, render_template
+from flask.globals import request
+from test import idpw_ck
+
 app = Flask(__name__)
 
 #기본
@@ -9,7 +12,7 @@ def Main():
 #게임페이지
 @app.route('/Game')
 def Game():
-    return render_template('Game.html')
+    return render_template('Game.html', image_file="img/MHR.jpg")
 
 #노래페이지
 @app.route('/Music')
@@ -17,17 +20,23 @@ def Music():
     return render_template('Music.html')
 
 #로그인페이지
-@app.route('/Login', methods=['GET','POST'])
-def Login():
+@app.route('/Signin', methods=['GET', 'POST'])
+def Signin():
     if request.method == "GET":
-        return '그냥 넘어옴'
+        return render_template('Signin.html')
     else:
-        return '그냥 넘어옴'
+        id = request.form['id']
+        pw = request.form['pw']
+        return idpw_ck(id, pw)
 
-#로그인후페이지
-@app.route('/Loginac')
-def Loginac():
-    return '로그인 되었습니다.'
+#회원가입페이지
+@app.route('/Signup', methods=['GET', 'POST'])
+def Signup():
+    if request.method == "GET":
+        return render_template('Signup.html')
+    else:
+        name = request.form['username']
+        return '<b>{}</b>님 회원가입 되었습니다.'.format(name)
 
 if __name__ == '__main__':
     app.run()
