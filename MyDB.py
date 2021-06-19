@@ -1,7 +1,7 @@
 import pymysql
 
 def insert_user(userid, username, userpw):
-    db = pymysql.connect(host='localhost', user='root', password='1234', db='adb', charset='utf8')
+    db = pymysql.connect(host='LHJ995.mysql.pythonanywhere-services.com', user='LHJ995', password='dlagurwls', db='LHJ995$MyDB', charset='utf8')
     c = db.cursor()
     setdata = (userid, userpw, username)
     c.execute("INSERT INTO user VALUES (%s, %s, %s)", setdata)
@@ -10,7 +10,7 @@ def insert_user(userid, username, userpw):
 def get_user(userid, userpw):
     ret = ()
     try:
-        db = pymysql.connect(host='localhost', user='root', password='1234', db='adb', charset='utf8')
+        db = pymysql.connect(host='LHJ995.mysql.pythonanywhere-services.com', user='LHJ995', password='dlagurwls', db='LHJ995$MyDB', charset='utf8')
         c = db.cursor()
         setdata = (userid, userpw)
         c.execute('SELECT * FROM user WHERE userid = %s AND userpw = %s', setdata)

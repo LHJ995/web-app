@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, session, redirect
-from code import idpw_ck
-import adb
+import MyDB
 
 app = Flask(__name__)
 
@@ -76,5 +75,5 @@ def Signup():
         adb.insert_user(userid, username, userpw)
         return '''<script>alert('{}님 회원가입 되었습니다.'); location.href='/Signin'</script>'''.format(username)
 
-if __name__ == '__main__':
-    app.run()
+#if __name__ == '__main__':
+#    app.run()
