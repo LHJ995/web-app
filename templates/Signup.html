@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset = "utf-8"/>
-    </head>
-    <body>
+<head>
+  <meta charset="utf-8"/>
 
-        <h2>회원가입 창</h2>
+  <link href="{{url_for('static', filename='css/Signin.css') }}" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
 
-        <form action="/Signup" method="POST">
-            <p>아이디</p>
-            <input type="text" placeholder="아이디를 입력해주세요." name="userid"/>
-            <p>비밀번호</p>
-            <input type="password" placeholder="비밀번호를 입력해주세요." name="userpw"/>
-            <p>닉네임</p>
-            <input type="text" placeholder="닉네임을 입력해주세요." name="username"/>
-            <br><br>
-            <input type="submit" value="회원가입"/>
-            <br><br>
-            <button type="button" onclick="location.href='/'">뒤로가기</button>
-        </form>
-    </body>
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="http://www.kit.ac.kr/images/templates/www/common/logo.svg" style="width:50%; height:50%; margin:2%" id="icon" alt="User Icon"/>
+      </div>
+  
+      <!-- Login Form -->
+      <form action="Signup" method="POST">
+        <input type="text" id="login" class="fadeIn second" name="userid" placeholder="Id">
+        <input type="password" id="password" class="fadeIn third" name="userpw" placeholder="Password">
+        <input type="text" id="login" class="fadeIn third" name="username" placeholder="UserName">
+        <input type="submit" class="fadeIn fourth" value="Sign up">
+      </form>
+    </div>
+  </div>
+</body>
 </html>

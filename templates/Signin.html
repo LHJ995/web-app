@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <meta charset="utf-8"/>
+
+  <link href="{{url_for('static', filename='css/Signin.css') }}" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
 <body>
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
 
-  <h2>로그인 창</h2>
-
-  <form action="/Signin" method="POST">
-    <p>아이디</p>
-    <input type="text" name="userid"/>
-    <p>비밀번호</p>
-    <input type="password" name="userpw"/><br><br>
-    <input type="submit" value="로그인"/><br><br>
-    <button type="button" onclick="location.href='/'">뒤로가기</button>
-  </form>
-
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="http://www.kit.ac.kr/images/templates/www/common/logo.svg" style="width:50%; height:50%; margin:2%" id="icon" alt="User Icon"/>
+      </div>
+  
+      <!-- Login Form -->
+      <form action="Signin" method="POST">
+        <input type="text" id="login" class="fadeIn second" name="userid" placeholder="Id">
+        <input type="password" id="password" class="fadeIn third" name="userpw" placeholder="Password">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="/Signup">회원가입</a>
+      </div>
+  
+    </div>
+  </div>
 </body>
 </html>
