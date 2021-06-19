@@ -46,8 +46,8 @@ def Signin():
     else:
         userid = request.form['userid']
         userpw = request.form['userpw']
-        adb.get_user(userid, userpw)
-        ret = adb.get_user(userid, userpw)
+        MyDB.get_user(userid, userpw)
+        ret = MyDB.get_user(userid, userpw)
         if ret != None:
             print(ret[1])
             session['username'] = ret[1]
@@ -72,7 +72,7 @@ def Signup():
         username = request.form['username']
         userid = request.form['userid']
         userpw = request.form['userpw']
-        adb.insert_user(userid, username, userpw)
+        MyDB.insert_user(userid, username, userpw)
         return '''<script>alert('{}님 회원가입 되었습니다.'); location.href='/Signin'</script>'''.format(username)
 
 #if __name__ == '__main__':
